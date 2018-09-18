@@ -50,7 +50,9 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: null,
+        onPressed: () {
+          
+        },
       ),
     );
   }
