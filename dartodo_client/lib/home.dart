@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:badge/badge.dart';
+
+import 'listitem.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dartodo"),
+        title: Center(
+          child: Text("Dartodo"),
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            tooltip: "Filter",
-            onPressed: null,
+            tooltip: "Search",
+            onPressed: () {
+              return 1;
+            },
           ),
           IconButton(
-            icon: Icon(Icons.favorite),
+            icon: Icon(Icons.filter_list),
+            tooltip: "Filter",
+            onPressed: () {
+              return 1;
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.favorite_border),
             tooltip: "Favorites",
-            onPressed: null,
-          )
+            onPressed: () {
+              return 1;
+            },
+          ),
         ],
       ),
       body: Column(
@@ -34,47 +48,10 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: null,
+      ),
     );
   }
-}
-
-class ListItem extends StatelessWidget {
-  final String name;
-  final bool favorite;
-  final List<String> tags;
-  final Widget child;
-
-  ListItem({
-    Key key,
-    this.name,
-    this.favorite: false,
-    this.tags,
-    this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        child: new Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ListTile(
-          leading: Icon(Icons.favorite_border),
-          title: Text(this.name),
-        ),
-        Badge(
-          value: "Work",
-          child: Text(""),
-        ),
-      ],
-    ));
-  }
-}
-
-class ListData {
-  final String name;
-  final bool favorite;
-  final List<String> tags;
-
-  ListData(this.name, this.favorite, this.tags);
 }
