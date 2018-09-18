@@ -15,21 +15,21 @@ class Home extends StatelessWidget {
             icon: Icon(Icons.search),
             tooltip: "Search",
             onPressed: () {
-              return 1;
+              return;
             },
           ),
           IconButton(
             icon: Icon(Icons.filter_list),
             tooltip: "Filter",
             onPressed: () {
-              return 1;
+              return;
             },
           ),
           IconButton(
             icon: Icon(Icons.favorite_border),
             tooltip: "Favorites",
             onPressed: () {
-              return 1;
+              return;
             },
           ),
         ],
@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
           ListItem(
             name: "Do assignment 3",
             favorite: false,
-            tags: ["Work", "Stuff"],
+            tags: [],
           ),
         ],
       ),

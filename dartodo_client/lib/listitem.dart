@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:badge/badge.dart';
+import 'badge.dart';
 
 class ListItem extends StatelessWidget {
   final String name;
@@ -22,19 +22,16 @@ class ListItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         ListTile(
-          leading: Icon(Icons.favorite_border),
+          trailing: Icon(Icons.favorite_border),
           title: Text(this.name),
-        ),
-        ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: tags.length,
-          itemBuilder: (context, index) {
-            final tag = tags[index];
-            return Badge(
-              value: tag,
-              child: null
-            );
-          }
+          subtitle: Container(
+            margin: const EdgeInsets.only(
+                left: 0.0, right: 2.0, top: 6.0, bottom: 0.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: tags.map((item) => new Badge(item)).toList(),
+            ),
+          ),
         )
       ],
     ));
