@@ -22,7 +22,7 @@ class Badge extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         this._text,
-        style: TextStyle(color: Colors.white, fontSize: 10.0),
+        style: TextStyle(color: Colors.white, fontSize: 10.0, fontWeight: FontWeight.bold),
       ),
     );
   }
