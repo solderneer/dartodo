@@ -3,29 +3,27 @@ import 'package:flutter/material.dart';
 import 'listitem.dart';
 import 'datatypes.dart';
 
-class Home extends StatelessWidget {
-  final List<TodoItem> _todolist = [
-    TodoItem(
-        title: 'Do Math Assignment',
-        description: 'Please do your math assignment',
-        favorite: false,
-        taglist: [
-          TagType(content: 'Work', color: Colors.red),
-          TagType(content: 'School', color: Colors.green)
-        ]),
-    TodoItem(
-        title: 'Cut my hair',
-        description: 'Need to get a haircut, Murali is bothering me',
-        favorite: false,
-        taglist: [TagType(content: 'Personal', color: Colors.blue)
-        ]), TodoItem(
-        title: 'Apple service center',
-        description: 'MY COMPUTER STOPPED WORKING',
-        favorite: false,
-        taglist: [TagType(content: 'None', color: Colors.grey)
-        ]),
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
-  ];
+class _HomeState extends State<Home> {
+  List<TodoItem> todoList = [];
+
+  void _onCreate() {
+    setState(() {
+          todoList.add(TodoItem(
+            title: 'Revise for math test', 
+            description: 'It is tomorrow', 
+            favorite: false, 
+            taglist: [
+              TagType(content: 'Work', color: Colors.red), 
+              TagType(content: 'School', color: Colors.green)],
+          ));
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,17 +54,19 @@ class Home extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        itemCount: _todolist.length,
+        itemCount: todoList.length,
         itemBuilder: (context, index) {
           return ListItem(
-              name: _todolist[index].title,
-              favorite: _todolist[index].favorite,
-              tags: _todolist[index].taglist);
+              name: todoList[index].title,
+              favorite: todoList[index].favorite,
+              tags: todoList[index].taglist);
         },
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          _onCreate();
+        },
       ),
     );
   }
