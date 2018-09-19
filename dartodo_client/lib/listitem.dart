@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'badge.dart';
+import 'datatypes.dart';
 
 class ListItem extends StatelessWidget {
   final String name;
   final bool favorite;
-  final List<String> tags;
+  final List<TagType> tags;
   final Widget child;
 
   ListItem({
@@ -29,7 +31,9 @@ class ListItem extends StatelessWidget {
                 left: 0.0, right: 2.0, top: 6.0, bottom: 0.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: tags.map((item) => new Badge(item)).toList(),
+              children: tags
+                  .map((item) => new Badge(item.content, item.color))
+                  .toList(),
             ),
           ),
         )

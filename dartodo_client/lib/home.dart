@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'listitem.dart';
+import 'datatypes.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text("Dartodo"),
-        ),
+        title: Text("Dartodo"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
@@ -39,7 +38,10 @@ class Home extends StatelessWidget {
           ListItem(
             name: "Do assignment 3",
             favorite: false,
-            tags: ["Work", "Stuff"],
+            tags: [
+              TagType(content: 'Work', color: Colors.red),
+              TagType(content: 'School', color: Colors.blue)
+            ],
           ),
           ListItem(
             name: "Do assignment 3",
@@ -50,9 +52,7 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {
-          
-        },
+        onPressed: () {},
       ),
     );
   }

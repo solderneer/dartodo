@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Badge extends StatelessWidget {
   final _text;
+  final Color _color;
 
-  Badge(this._text);
+  Badge(this._text, this._color);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class Badge extends StatelessWidget {
           const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 5.0, top: 5.0),
       margin: const EdgeInsets.all(2.0),
       decoration: new BoxDecoration(
-          color: Colors.green, //new Color.fromRGBO(255, 0, 0, 0.0),
+          color: _color, //new Color.fromRGBO(255, 0, 0, 0.0),
           borderRadius: new BorderRadius.only(
               topLeft: const Radius.circular(5.0),
               topRight: const Radius.circular(5.0),

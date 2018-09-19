@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TagType {
-  final String name;
+  final String content;
   final Color color;
 
-  TagType({@required this.name, @required this.color});
+  TagType({@required this.content, @required this.color});
 }
 
 class TodoItem {
