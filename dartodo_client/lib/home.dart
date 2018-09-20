@@ -12,15 +12,32 @@ class _HomeState extends State<Home> {
   List<TodoItem> todoList = [];
 
   void _onCreate() {
+    /*
     setState(() {
-          todoList.add(TodoItem(
-            title: 'Revise for math test', 
-            description: 'It is tomorrow', 
-            favorite: false, 
-            taglist: [
-              TagType(content: 'Work', color: Colors.red), 
-              TagType(content: 'School', color: Colors.green)],
-          ));
+      todoList.add(TodoItem(
+        title: 'Revise for math test',
+        description: 'It is tomorrow',
+        favorite: false,
+        taglist: [
+          TagType(content: 'Work', color: Colors.red),
+          TagType(content: 'School', color: Colors.green)
+        ],
+      ));
+    });*/
+
+    _modalBottomSheet();
+  }
+
+  void _modalBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return new Container(
+            color: Colors.yellowAccent,
+            child: new Center(
+              child: new Text("Hey guys !! it is a modal bottom sheet"),
+            ),
+          );
         });
   }
 
