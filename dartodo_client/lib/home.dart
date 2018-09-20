@@ -13,7 +13,6 @@ class _HomeState extends State<Home> {
   List<TodoItem> todoList = [];
 
   void _onCreate() {
-    /*
     setState(() {
       todoList.add(TodoItem(
         title: 'Revise for math test',
@@ -24,16 +23,16 @@ class _HomeState extends State<Home> {
           TagType(content: 'School', color: Colors.green)
         ],
       ));
-    });*/
+    });
 
-    _modalBottomSheet();
+    // _modalBottomSheet();
   }
 
   void _modalBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-            return BottomPanel(); 
+          return BottomPanel();
         });
   }
 
@@ -69,10 +68,18 @@ class _HomeState extends State<Home> {
       body: ListView.builder(
         itemCount: todoList.length,
         itemBuilder: (context, index) {
-          return ListItem(
-              name: todoList[index].title,
-              favorite: todoList[index].favorite,
-              tags: todoList[index].taglist);
+          return Dismissible(
+            key: Key(todoList[index].title),
+            onDismissed: (direction) {
+              setState(() {
+                todoList.removeAt(index);
+              });
+            },
+            child: ListItem(
+                name: todoList[index].title,
+                favorite: todoList[index].favorite,
+                tags: todoList[index].taglist),
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
