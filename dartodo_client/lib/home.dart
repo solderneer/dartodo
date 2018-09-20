@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'listitem.dart';
+import 'bottompanel.dart';
 import 'datatypes.dart';
 
 class Home extends StatefulWidget {
@@ -32,12 +33,7 @@ class _HomeState extends State<Home> {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-          return new Container(
-            color: Colors.yellowAccent,
-            child: new Center(
-              child: new Text("Hey guys !! it is a modal bottom sheet"),
-            ),
-          );
+            return BottomPanel(); 
         });
   }
 

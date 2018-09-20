@@ -12,9 +12,9 @@ class Badge extends StatelessWidget {
       padding:
           const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 5.0, top: 5.0),
       margin: const EdgeInsets.all(2.0),
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
           color: _color, //new Color.fromRGBO(255, 0, 0, 0.0),
-          borderRadius: new BorderRadius.only(
+          borderRadius: BorderRadius.only(
               topLeft: const Radius.circular(5.0),
               topRight: const Radius.circular(5.0),
               bottomLeft: const Radius.circular(5.0),
