@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
         itemCount: todoList.length,
         itemBuilder: (context, index) {
           return Dismissible(
-            key: Key(todoList[index].title),
+            key: Key(todoList[index].title), 
             onDismissed: (direction) {
               setState(() {
                 todoList.removeAt(index);
