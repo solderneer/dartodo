@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rounded_modal/rounded_modal.dart';
 
 import '../components/listitem.dart';
 import '../components/bottompanel.dart';
@@ -34,11 +35,12 @@ class _HomeState extends State<Home> {
   }
 
   void _modalBottomSheet() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return BottomPanel();
-        });
+    showRoundedModalBottomSheet(
+      context: context,
+      radius: 10.0,  // This is the default
+      color: Colors.white,  // Also default
+      builder: (context) => BottomPanel(),
+    );
   }
 
   @override
