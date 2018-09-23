@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'listitem.dart';
-import 'bottompanel.dart';
-import 'datatypes.dart';
+import '../components/listitem.dart';
+import '../components/bottompanel.dart';
+import '../utilities/datatypes.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,10 +11,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<TodoItem> todoList = [];
+  var keyGen = 0;
 
   void _onCreate() {
+    /* Code to test listitem creation
     setState(() {
       todoList.add(TodoItem(
+        key: keyGen.toString(),
         title: 'Revise for math test',
         description: 'It is tomorrow',
         favorite: false,
@@ -23,9 +26,11 @@ class _HomeState extends State<Home> {
           TagType(content: 'School', color: Colors.green)
         ],
       ));
-    });
 
-    //_modalBottomSheet();
+      keyGen++;
+      print(keyGen);
+    });*/
+    _modalBottomSheet();
   }
 
   void _modalBottomSheet() {
@@ -69,7 +74,7 @@ class _HomeState extends State<Home> {
         itemCount: todoList.length,
         itemBuilder: (context, index) {
           return Dismissible(
-            key: Key(todoList[index].title), 
+            key: Key(todoList[index].key), 
             onDismissed: (direction) {
               setState(() {
                 todoList.removeAt(index);

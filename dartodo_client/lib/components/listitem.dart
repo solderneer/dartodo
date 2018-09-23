@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'badge.dart';
-import 'datatypes.dart';
+import '../utilities/datatypes.dart';
 
 class ListItem extends StatelessWidget {
   final String name;

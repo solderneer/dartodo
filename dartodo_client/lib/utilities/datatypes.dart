@@ -8,13 +8,15 @@ class TagType {
 }
 
 class TodoItem {
+  final String key;
   final String title;
   final String description;
   final bool favorite;
   final List<TagType> taglist;
 
   TodoItem(
-      {@required this.title,
+      {@required this.key,
+      @required this.title,
       @required this.description,
       @required this.favorite,
       @required this.taglist});
