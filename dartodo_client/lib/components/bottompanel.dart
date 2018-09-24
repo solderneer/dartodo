@@ -4,25 +4,24 @@ class BottomPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-        topLeft: const Radius.circular(30.0),
-        topRight: const Radius.circular(30.0),
-      )),
       child: Column(
         children: <Widget>[
-          Padding(
-              padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
+          Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(top: 10.0, bottom: 5.0, left: 10.0),
               child: Text(
                 'Create new task',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
+                  fontSize: 15.0,
                 ),
               )),
           Divider(
             color: Colors.black26,
           ),
+          Container(
+            
+          )
         ],
       ),
     );

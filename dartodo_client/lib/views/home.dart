@@ -15,7 +15,6 @@ class _HomeState extends State<Home> {
   var keyGen = 0;
 
   void _onCreate() {
-    /* Code to test listitem creation
     setState(() {
       todoList.add(TodoItem(
         key: keyGen.toString(),
@@ -30,14 +29,15 @@ class _HomeState extends State<Home> {
 
       keyGen++;
       print(keyGen);
-    });*/
+    });
+
     _modalBottomSheet();
   }
 
   void _modalBottomSheet() {
     showRoundedModalBottomSheet(
       context: context,
-      radius: 10.0,  // This is the default
+      radius: 20.0,  // This is the default
       color: Colors.white,  // Also default
       builder: (context) => BottomPanel(),
     );
