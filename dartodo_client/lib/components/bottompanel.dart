@@ -16,6 +16,21 @@ class BottomPanel extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 20.0)),
         ),
       ),
+      Container(
+          padding: EdgeInsets.all(10.0),
+          child: TextField(
+              decoration: InputDecoration(
+                  hintText: 'Title',
+                  filled: true,
+                  fillColor: Colors.grey[300]))),
+      Container(
+        padding: EdgeInsets.all(10.0),
+        child: TextField(
+            decoration: InputDecoration(
+                hintText: 'Description',
+                filled: true,
+                fillColor: Colors.grey[300])),
+      ),
     ]);
   }
 }
