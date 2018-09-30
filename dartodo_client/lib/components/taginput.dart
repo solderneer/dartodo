@@ -5,10 +5,10 @@ import '../utilities/datatypes.dart';
 
 class TagInput extends StatelessWidget {
   final List<TagType> taglist;
-  final Function _tapCallback;
+  final TagCallback _callback;
 
-  TagInput(this.taglist, this._tapCallback);
-  
+  TagInput(this.taglist, this._callback);
+
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
@@ -25,9 +25,12 @@ class TagInput extends StatelessWidget {
           child: Wrap(
             spacing: 8.0, // gap between adjacent chips
             runSpacing: 4.0, // gap between lines
-            children: taglist
-                .map((item) => new GestureDetector(child: Badge(item.content, item.color), onTap: _tapCallback(item)))
-                .toList(),
+            children: taglist.map((item) {
+              return GestureDetector(
+                child: Badge(item.content, item.color),
+                onTap: () => _callback(item),
+              );
+            }).toList(),
           )),
     ]);
   }

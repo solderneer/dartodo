@@ -26,10 +26,10 @@ class BottomPanel extends StatelessWidget {
       ),
       TextInput('Title:', 'Enter title', 1),
       TextInput('Description:', 'Enter description', 3),
-      TagInput(taglist, (item) => print(1)),
+      TagInput(taglist, (item) => print(item.content)),
       Container(
           alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
+          margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0, bottom: 10.0),
           height: 30.0,
           decoration: BoxDecoration(
               color: Colors.blue[600],

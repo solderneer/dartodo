@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+typedef void TagCallback(TagType item);
+
 class TagType {
   final String content;
   final Color color;
