@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
+import './textinput.dart';
+import './taginput.dart';
+
 class BottomPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
+    return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
       Container(
-        height: 60.0,
-        decoration: new BoxDecoration(
+        height: 50.0,
+        decoration: BoxDecoration(
           color: Colors.blue,
-          borderRadius: new BorderRadius.only(
+          borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         ),
         child: Center(
@@ -16,21 +19,20 @@ class BottomPanel extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 20.0)),
         ),
       ),
+      TextInput('Title:', 'Enter title', 1),
+      TextInput('Description:', 'Enter description', 3),
+      TagInput(),
       Container(
-          padding: EdgeInsets.all(10.0),
-          child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Title',
-                  filled: true,
-                  fillColor: Colors.grey[300]))),
-      Container(
-        padding: EdgeInsets.all(10.0),
-        child: TextField(
-            decoration: InputDecoration(
-                hintText: 'Description',
-                filled: true,
-                fillColor: Colors.grey[300])),
-      ),
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
+          height: 30.0,
+          decoration: BoxDecoration(
+              color: Colors.blue[600],
+              borderRadius: BorderRadius.all(Radius.circular(5.0))),
+          child: Text(
+            'Create',
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
+          )),
     ]);
   }
 }
