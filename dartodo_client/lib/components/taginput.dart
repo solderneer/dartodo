@@ -23,7 +23,7 @@ class TagInput extends StatelessWidget {
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.all(10.0),
           child: Wrap(
-            spacing: 8.0, // gap between adjacent chips
+            spacing: 0.0, // gap between adjacent chips
             runSpacing: 4.0, // gap between lines
             children: taglist.map((item) {
               return GestureDetector(
