@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 import './textinput.dart';
 import './taginput.dart';
+import '../utilities/datatypes.dart';
 
 class BottomPanel extends StatelessWidget {
+  List<TagType> taglist = [
+          TagType(content: 'Work', color: Colors.red),
+          TagType(content: 'School', color: Colors.green)
+        ];
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -21,7 +26,7 @@ class BottomPanel extends StatelessWidget {
       ),
       TextInput('Title:', 'Enter title', 1),
       TextInput('Description:', 'Enter description', 3),
-      TagInput(),
+      TagInput(taglist, (item) => print(1)),
       Container(
           alignment: Alignment.center,
           margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),

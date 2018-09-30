@@ -4,10 +4,10 @@ import './badge.dart';
 import '../utilities/datatypes.dart';
 
 class TagInput extends StatelessWidget {
-  final List<TagType> taglist = [
-    TagType(content: 'Work', color: Colors.red),
-    TagType(content: 'School', color: Colors.green)
-  ];
+  final List<TagType> taglist;
+  final Function _tapCallback;
+
+  TagInput(this.taglist, this._tapCallback);
   
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class TagInput extends StatelessWidget {
             spacing: 8.0, // gap between adjacent chips
             runSpacing: 4.0, // gap between lines
             children: taglist
-                .map((item) => new Badge(item.content, Colors.grey))
+                .map((item) => new GestureDetector(child: Badge(item.content, item.color), onTap: _tapCallback(item)))
                 .toList(),
           )),
     ]);
