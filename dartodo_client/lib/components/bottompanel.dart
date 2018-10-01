@@ -5,7 +5,7 @@ import './taginput.dart';
 import '../utilities/datatypes.dart';
 
 class BottomPanel extends StatelessWidget {
-  List<TagType> taglist = [
+  final List<TagType> taglist = [
           TagType(content: 'Work', color: Colors.red),
           TagType(content: 'School', color: Colors.green)
         ];
