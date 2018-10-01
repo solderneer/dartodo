@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
-typedef void TagCallback(TagType item);
+typedef void TagCallback(TagSelected item);
 
 class TagType {
   final String content;
   final Color color;
 
   TagType({@required this.content, @required this.color});
+}
+class TagSelected {
+  final String content;
+  final Color color;
+  bool enabled;
+
+  TagSelected({@required this.content, @required this.color, @required this.enabled});
 }
 
 class TodoItem {

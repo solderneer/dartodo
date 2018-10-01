@@ -4,18 +4,25 @@ import './taginput.dart';
 import '../utilities/datatypes.dart';
 
 class BottomPanel extends StatefulWidget {
+  final List<TagType> taglist;
+  BottomPanel(this.taglist);
+
   @override
-  _BottomPanelState createState() => _BottomPanelState();
+  _BottomPanelState createState() => _BottomPanelState(taglist);
 }
 
 class _BottomPanelState extends State<BottomPanel> {
-  final List<TagType> taglist = [
-    TagType(content: 'Work', color: Colors.red),
-    TagType(content: 'School', color: Colors.green)
-  ];
-
+  List<TagSelected> _tagselected;
   String _title;
   String _description;
+
+  _BottomPanelState(List<TagType> taglist) {
+    _tagselected = taglist
+        .map((item) => TagSelected(
+            content: item.content, color: item.color, enabled: false))
+        .toList();
+    print(_tagselected);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,19 +79,17 @@ class _BottomPanelState extends State<BottomPanel> {
           },
         ),
       ),
-      TagInput(taglist, (item) {
-        print(item);
-        print(_title);
-        print(_description);
+      TagInput(_tagselected, (item) {
+        setState(() => item.enabled = (item.enabled) ? false : true);
       }),
       Container(
           alignment: Alignment.center,
           margin:
-              EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0, bottom: 10.0),
-          height: 30.0,
+              EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 10.0),
+          height: 35.0,
           decoration: BoxDecoration(
               color: Colors.blue[600],
-              borderRadius: BorderRadius.all(Radius.circular(5.0))),
+              borderRadius: BorderRadius.all(Radius.circular(7.0))),
           child: Text(
             'Create',
             style: TextStyle(color: Colors.white, fontSize: 15.0),

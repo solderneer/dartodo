@@ -11,35 +11,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final List<TagType> taglist = [
+    TagType(content: 'Work', color: Colors.red),
+    TagType(content: 'School', color: Colors.green)
+  ];
   List<TodoItem> todoList = [];
   var keyGen = 0;
 
   void _onCreate() {
-    setState(() {
-      todoList.add(TodoItem(
-        key: keyGen.toString(),
-        title: 'Revise for math test',
-        description: 'It is tomorrow',
-        favorite: false,
-        taglist: [
-          TagType(content: 'Work', color: Colors.red),
-          TagType(content: 'School', color: Colors.green)
-        ],
-      ));
-
-      keyGen++;
-      print(keyGen);
-    });
-
     _modalBottomSheet();
   }
 
   void _modalBottomSheet() {
     showRoundedModalBottomSheet(
       context: context,
-      radius: 20.0,  // This is the default
-      color: Colors.white,  // Also default
-      builder: (context) => BottomPanel(),
+      radius: 20.0, // This is the default
+      color: Colors.white, // Also default
+      builder: (context) => BottomPanel(taglist),
     );
   }
 
@@ -76,7 +64,7 @@ class _HomeState extends State<Home> {
         itemCount: todoList.length,
         itemBuilder: (context, index) {
           return Dismissible(
-            key: Key(todoList[index].key), 
+            key: Key(todoList[index].key),
             onDismissed: (direction) {
               setState(() {
                 todoList.removeAt(index);
