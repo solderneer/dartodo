@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../utilities/datatypes.dart';
-
 class TextInput extends StatelessWidget {
+  final GlobalKey _key;
   final String _title;
   final String _hint;
   final int _maxlines;
 
-  TextInput(this._title, this._hint, this._maxlines);
+  TextInput(this._title, this._hint, this._maxlines, this._key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,8 @@ class TextInput extends StatelessWidget {
           )),
       Container(
         padding: EdgeInsets.all(10.0),
-        child: TextField(
+        child: TextFormField(
+            key: _key,
             maxLines: _maxlines,
             decoration: InputDecoration(
                 hintText: _hint, filled: true, fillColor: Colors.grey[300])),

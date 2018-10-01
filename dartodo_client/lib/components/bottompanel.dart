@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 
-import './textinput.dart';
 import './taginput.dart';
 import '../utilities/datatypes.dart';
 
-class BottomPanel extends StatelessWidget {
+class BottomPanel extends StatefulWidget {
+  @override
+  _BottomPanelState createState() => _BottomPanelState();
+}
+
+class _BottomPanelState extends State<BottomPanel> {
   final List<TagType> taglist = [
-          TagType(content: 'Work', color: Colors.red),
-          TagType(content: 'School', color: Colors.green)
-        ];
+    TagType(content: 'Work', color: Colors.red),
+    TagType(content: 'School', color: Colors.green)
+  ];
+
+  String _title;
+  String _description;
+
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
@@ -24,12 +32,55 @@ class BottomPanel extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 20.0)),
         ),
       ),
-      TextInput('Title:', 'Enter title', 1),
-      TextInput('Description:', 'Enter description', 3),
-      TagInput(taglist, (item) => print(item.content)),
+      Container(
+          padding: EdgeInsets.only(top: 10.0, left: 10.0),
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Title:',
+            style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+          )),
+      Container(
+        padding: EdgeInsets.all(10.0),
+        child: TextField(
+          maxLines: 1,
+          decoration: InputDecoration(
+              hintText: 'Enter title here',
+              filled: true,
+              fillColor: Colors.grey[300]),
+          onChanged: (input) {
+            setState(() => _title = input);
+          },
+        ),
+      ),
+      Container(
+          padding: EdgeInsets.only(top: 10.0, left: 10.0),
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Description:',
+            style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
+          )),
+      Container(
+        padding: EdgeInsets.all(10.0),
+        child: TextField(
+          maxLines: 1,
+          decoration: InputDecoration(
+              hintText: 'Enter description here',
+              filled: true,
+              fillColor: Colors.grey[300]),
+          onChanged: (input) {
+            setState(() => _description = input);
+          },
+        ),
+      ),
+      TagInput(taglist, (item) {
+        print(item);
+        print(_title);
+        print(_description);
+      }),
       Container(
           alignment: Alignment.center,
-          margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0, bottom: 10.0),
+          margin:
+              EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0, bottom: 10.0),
           height: 30.0,
           decoration: BoxDecoration(
               color: Colors.blue[600],
