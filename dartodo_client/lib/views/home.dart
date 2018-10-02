@@ -27,16 +27,24 @@ class _HomeState extends State<Home> {
       context: context,
       radius: 20.0, // This is the default
       color: Colors.white, // Also default
-      builder: (context) => BottomPanel(taglist, (title, description, tagselected) {
+      builder: (context) =>
+          BottomPanel(taglist, (title, description, tagselected) {
             setState(() {
               todoList.add(TodoItem(
                 key: keyGen.toString(),
                 title: title,
                 description: description,
                 favorite: false,
-                taglist: taglist,
+                taglist: tagselected
+                    .where((input) => input.enabled)
+                    .map((input) =>
+                        TagType(content: input.content, color: input.color))
+                    .toList(),
               ));
             });
+
+            keyGen++;
+            Navigator.pop(context);
           }),
     );
   }
