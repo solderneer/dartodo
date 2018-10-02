@@ -5,7 +5,8 @@ import '../utilities/datatypes.dart';
 
 class BottomPanel extends StatefulWidget {
   final List<TagType> taglist;
-  BottomPanel(this.taglist);
+  final CreateCallback callback;
+  BottomPanel(this.taglist, this.callback);
 
   @override
   _BottomPanelState createState() => _BottomPanelState(taglist);
@@ -82,18 +83,21 @@ class _BottomPanelState extends State<BottomPanel> {
       TagInput(_tagselected, (item) {
         setState(() => item.enabled = (item.enabled) ? false : true);
       }),
-      Container(
-          alignment: Alignment.center,
-          margin:
-              EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 10.0),
-          height: 35.0,
-          decoration: BoxDecoration(
-              color: Colors.blue[600],
-              borderRadius: BorderRadius.all(Radius.circular(7.0))),
-          child: Text(
-            'Create',
-            style: TextStyle(color: Colors.white, fontSize: 15.0),
-          )),
+      GestureDetector(
+        child: Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(
+                left: 10.0, right: 10.0, top: 15.0, bottom: 10.0),
+            height: 35.0,
+            decoration: BoxDecoration(
+                color: Colors.blue[600],
+                borderRadius: BorderRadius.all(Radius.circular(7.0))),
+            child: Text(
+              'Create',
+              style: TextStyle(color: Colors.white, fontSize: 15.0),
+            )),
+        onTap: () => widget.callback(_title, _description, _tagselected),
+      )
     ]);
   }
 }

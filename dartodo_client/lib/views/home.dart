@@ -27,7 +27,17 @@ class _HomeState extends State<Home> {
       context: context,
       radius: 20.0, // This is the default
       color: Colors.white, // Also default
-      builder: (context) => BottomPanel(taglist),
+      builder: (context) => BottomPanel(taglist, (title, description, tagselected) {
+            setState(() {
+              todoList.add(TodoItem(
+                key: keyGen.toString(),
+                title: title,
+                description: description,
+                favorite: false,
+                taglist: taglist,
+              ));
+            });
+          }),
     );
   }
 

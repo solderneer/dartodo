@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 typedef void TagCallback(TagSelected item);
+typedef void CreateCallback(String title, String description, List<TagSelected> taglist);
 
 class TagType {
   final String content;
