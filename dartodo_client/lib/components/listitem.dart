@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'badge.dart';
 import '../utilities/datatypes.dart';
 
 class ListItem extends StatelessWidget {
@@ -29,10 +28,15 @@ class ListItem extends StatelessWidget {
           subtitle: Container(
             margin: const EdgeInsets.only(
                 left: 0.0, right: 2.0, top: 6.0, bottom: 0.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+            child: Wrap(
+              spacing: 4.0,
+              runSpacing: 4.0,
               children: tags
-                  .map((item) => new Badge(item.content, item.color))
+                  .map((item) => Chip(
+                        label: Text(item.content),
+                        labelStyle: TextStyle(color: Colors.white),
+                        backgroundColor: item.color,
+                      ))
                   .toList(),
             ),
           ),

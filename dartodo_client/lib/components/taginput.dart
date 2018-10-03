@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './badge.dart';
 import '../utilities/datatypes.dart';
 
 class TagInput extends StatelessWidget {
@@ -21,13 +20,18 @@ class TagInput extends StatelessWidget {
           )),
       Container(
           alignment: Alignment.centerLeft,
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.only(left: 10.0),
           child: Wrap(
-            spacing: 0.0, // gap between adjacent chips
+            spacing: 4.0, // gap between adjacent chips
             runSpacing: 4.0, // gap between lines
             children: taglist.map((item) {
               return GestureDetector(
-                child: Badge(item.content, ((item.enabled) ? item.color : Colors.grey)),
+                //child: Badge(item.content, ((item.enabled) ? item.color : Colors.grey)),
+                child: Chip(
+                  label: Text(item.content),
+                  labelStyle: TextStyle(color: Colors.white),
+                  backgroundColor: ((item.enabled) ? item.color : Colors.grey),
+                ),
                 onTap: () => _callback(item),
               );
             }).toList(),
